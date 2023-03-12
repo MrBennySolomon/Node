@@ -1,0 +1,25 @@
+--------------------------------------------------------------------
+--------------------
+NODE SERVER-SIDE JS
+--------------------
+* process.
+* global.
+* require.
+* access to file system.
+* manipulate the file system.
+--------------------------------------------------------------------
+- NodeJS is a Javascript runtime environment.
+- We can run Javascript outside the browser with the help of NodeJS.
+- V8 is the Javascript engine inside of node.js that parses and runs Javascript. 
+----------------------
+BROWSER CLIENT-SIDE JS
+----------------------
+* document.
+* window.
+* access the DOM.
+* manipulate the DOM.
+--------------------------------------------------------------------
+- Javascript is capable enough to add HTML and play with the DOM. 
+- Javascript can run in any browser engine as like JS core in safari and Spidermonkey in Firefox. 
+- Javascript can only be run in the browsers.
+--------------------------------------------------------------------
