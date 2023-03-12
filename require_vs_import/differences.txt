@@ -1,0 +1,38 @@
+---------------------------------------------------------------
+REQUIRE                     |        ES6 IMPORT AND EXPORT
+---------------------------------------------------------------
+Require is Non-lexical,     |   Import is lexical, it gets
+it stays where they have    |   sorted to the top of the file.
+put the file.               |
+---------------------------------------------------------------
+It can be called at any     |   It can’t be called 
+time and place in the       |   conditionally, it always run in 
+program.                    |   the beginning of the file.
+---------------------------------------------------------------
+You can directly run the    |   To run a program containing 
+code with require statement.|   import statement you have to 
+                            |   use experimental module feature 
+                            |   flag.
+---------------------------------------------------------------
+If you want to use require  |   If you want to use import 
+module then you have to     |   module then you have to save 
+save file with ‘.js’        |   file with ‘.mjs’ extension.
+extension.                  |
+--------------------------------------------------------------- 
+ 
+// 1. What is the difference between import and require?
+// a.  You can't selectively load only the pieces you need with require but with import,
+// you can selectively load only the pieces you need, which can save memory.
+
+// b. Loading is synchronous(step by step) for require on the other hand import can be
+// asynchronous(without waiting for previous import) so it can perform a little better than require.
+
+// c. To use the require() statement, a module must be saved with .js extension as opposed to .mjs when the import() statement is used.
+// ES modules can be loaded dynamically via the import() function unlike require().
+
+// d. One of the major differences between require() and import() is that require() can be called from anywhere
+// inside the program whereas import() cannot be called conditionally, it always runs at the beginning of the file.
+
+// e  .The difference between require and import,
+// is that require will automatically scan node_modules to find modules, but import, which comes from ES6, won't.
+
