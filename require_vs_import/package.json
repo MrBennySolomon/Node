@@ -1,13 +1,15 @@
 {
   "name": "require_vs_import",
   "version": "1.0.0",
-  "type": "module",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node script.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "cross-env": "^7.0.3"
+  }
 }

@@ -29,3 +29,13 @@
 // import fs from "fs";
 // const msg = fs.readFileSync("./notes.txt", { encoding: "utf8"});
 // console.log(msg);
+
+require('dotenv').config();
+
+const {
+  NODE_ENV, PORT, HOST
+} = process.env;
+
+console.log(NODE_ENV,
+            PORT,
+            HOST);
