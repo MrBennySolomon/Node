@@ -1,0 +1,98 @@
+-----
+-Koa-
+-----
+From the same team of creators behind ExpressJS comes Koa, 
+which is a much more customizable alternative to existing NodeJS frameworks.
+It is perfect for projects that require flexibility and interoperability.
+With async functions, Koa allows you to ditch callbacks, 
+which is one of the main points of criticism against Express.
+The main difference between Koa and Express is in the way they handle middleware; 
+Koa comes without any bundled middleware and requires modules for routing and templates.
+
+---------
+-Fastify-
+---------
+Fastify is another popular open-source web framework for the Node environment that is primarily famous for its speed, i.e., 
+it is up to 20% faster than Express in almost every request.
+It provides full encapsulation for plug-ins, parses incoming requests into JSON with faster rendering, 
+and provides quick routing. 
+Fastify also has a cleaner syntax for writing async codes for use as controller code.
+
+------
+-Nest-
+------
+NestJS is a free and open-source Node.js framework that is used to build scalable and efficient server-side applications.
+It is inspired by Google’s Angular and is built with TypeScript, 
+a typed superset of JavaScript that allows you to use the concepts of functional, 
+functional reactive, and object-oriented programming.
+Nest makes it easier to divide the apps into microservices, 
+thereby offering a clearer architecture than Express with fewer components.
+
+----------
+-Ember JS-
+----------
+Ember JS is one of the most popular JavaScript frameworks used by some of the top companies like Apple Music, Vine, Twitch, and LinkedIn.
+It is considered one of the best in distributor logic; it follows the model-view-ViewModel (MVVM) 
+architecture and allows developers to build highly scalable web apps using common idioms.
+If the development team behind your project is big, Ember is the ideal JS framework you can use.
+
+------------
+-BackboneJS-
+------------
+Initially released in 2010, 
+Backbone has grown consistently in popularity as one of the most viable competitors to Express in the Node.js environment. 
+It is a free and open-source JavaScript library with a RESTful interface based on the MVC paradigm.
+Backbone is highly lightweight and flexible as it is dependent on only one underlying library, i.e., 
+Underscore.js, making it extremely easy to build apps and their front ends using JavaScript.
+
+--------
+-Vue JS-
+--------
+In the list of JavaScript frameworks, Vue is one of the newer alternatives to Express but has been consistently rising in the popularity ranks.
+It is also based on the MVVM architecture and offers much more core functionalities despite being one of the lightest JS frameworks available to developers.
+Vue offers a familiar templating syntax, which makes integrating and migrating existing projects to it smoother and quicker.
+
+-------------
+-Knockout JS-
+-------------
+Knockout is a pure JavaScript library and a standalone implementation of the MVVM pattern that works with any web framework.
+It provides an easy and clean way to handle complex data-driven interfaces with the help of Templates, 
+which helps developers build complex UI structures easily.
+Some of the most sought after features of Knockout includes declarative bindings, deep browser support, built-in templating support, etc. 
+
+---------
+-Angular-
+---------
+The current iteration of Angular is a complete rewrite of Angular JS, 
+which was one of the first full-stack web frameworks in the JavaScript environment.
+Angular 2.0, as it is called, is written in TypeScript and is a client-side framework that is primarily used to create single-page web, 
+desktop, and mobile apps with HTML strings.
+The update also decoupled the DOM from the framework and introduced the use of multiple renderers, 
+which enabled rapid development and faster app loading.
+
+--------
+-Meteor-
+--------
+MeteorJS is another full-stack JavaScript framework that is primarily preferred for frontend development like Angular.
+It offers developers a complete collection of interdependent libraries that can be used to build websites and web apps rapidly and easily.
+Meteor provides a database template and takes care of Express with the help of its template system and Blaze, 
+enabling the same capabilities as the MEAN stack.
+
+----------
+-Sails JS-
+----------
+Sails JS is one of the most popular MVC frameworks for the Node JS environment that emulates the MVC pattern of frameworks like Ruby, 
+but with the support for the requirements of the modern apps.
+It is essentially a lightweight framework that sits on top of Express and enables a uniform API irrespective of the underlying database. 
+Like Rails, Sails JS provides an ORM interface which abstracts the database interaction.
+
+------------
+-Conclusion-
+------------
+Express is mainly suitable for highly interactive web projects as it allows developers to build quicker and scalable web apps easily.
+If you are going to develop a large project that will be supported by a large team of developers, 
+the lack of standardization can be a bottleneck in the productivity of your teams.
+So, you will need to thoroughly consider the needs of your project before selecting a web framework for your project.
+If you cannot conclude the decision among the best alternatives to ExpressJS on your own, 
+consider getting in touch with the experts at one of the leading app hosting companies.
+They can help you make an informed decision by carefully assessing your needs and suggest you the best software solutions for your upcoming projects.
