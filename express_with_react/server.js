@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import axios from 'axios';
 
 dotenv.config({ path: './config/config.env' });
 
@@ -20,7 +21,35 @@ const people = [
   { id: 10, name: 'Emma White' },
 ];
 
+app.get("/api/weather/:city", async (req, res) => {
+  try {
+    // Get the city name from the request parameter
+    console.log(req.params);
+    const city = req.params.city;
+
+    // Call the weather API with the city name
+    const response = await axios.get(
+      `http://api.weatherapi.com/v1/current.json?key=9ee0f7b5de614141b7485133231903%20&q=${city}&aqi=no`
+    );
+      console.log('response', response);
+    // Extract the relevant weather data from the response
+    const data = response.data;
+
+    // Send the weather data back to the client
+    //res.send(data);
+    res.json(data);
+  } catch (error) {
+    // Handle errors
+    console.error(error);
+    res.status(500).send("An error occurred while fetching weather data.");
+  }
+});
+
 app.get('/api/people', (req, res) => {
+  res.json(people);
+});
+app.get('/api/weather', (req, res) => {
+
   res.json(people);
 });
 

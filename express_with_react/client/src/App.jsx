@@ -1,30 +1,46 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './App.css'
 
 function App() {
   const [people, setPeople] = useState([]);
+  const [weatherData, setWeatherData] = useState({});
 
-  useEffect(() => {
-    const fetchPeople = async () => {
+
+  const inputRef = useRef();
+
+  const fetchWeather = async (city) => {
       try {
-        const response = await fetch('/api/people');
+        // const response = await fetch('/api/people');
+        const response = await fetch(`/api/weather/${city}`);
         const data = await response.json();
-        setPeople(data);
+        const weatherObj = data;
+        setWeatherData(weatherObj);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-    fetchPeople();
-  }, []);
+
+  const weatherHandler = () => {
+    const city = inputRef.current.value;
+
+    fetchWeather(city);
+  }
 
   return (
     <div className="App">
-      <h1>List of People</h1>
-      <ul>
-        {people.map((person) => (
-          <li key={person.id}>{person.name}</li>
-        ))}
-      </ul>
+      <input ref={inputRef} type='text' placeholder='CITY'/>
+      <button onClick={weatherHandler} >GET WEATHER</button>
+      {weatherData && 
+        <table>
+          <thead></thead>
+          <tbody>
+            <tr><td>REGION:</td><td>{weatherData.location.region}</td></tr>
+            <tr><td>COUNTRY</td><td>{weatherData.location.country}</td></tr>
+            <tr><td>TEMP (C)</td><td>{weatherData.current.temp_c}</td></tr>
+            <tr><td>TEMP (F)</td><td>{weatherData.current.temp_f}</td></tr>
+          </tbody>
+        </table>}
+
     </div>
   );
 }
