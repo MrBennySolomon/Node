@@ -1,32 +1,29 @@
-const express = require("express");
-const axios = require("axios");
+import express from 'express';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: './config/config.env' });
+
 const app = express();
-const port = 3000;
 
-// Route to get weather data for a given city
-app.get("/weather/:city", async (req, res) => {
-  try {
-    // Get the city name from the request parameter
-    const city = req.params.city;
+app.get('/', (req, res) => res.send('Server running'));
 
-    // Call the weather API with the city name
-    const response = await axios.get(
-      `http://api.weatherapi.com/v1/current.json?key=9ee0f7b5de614141b7485133231903%20&q=${city}&aqi=no`
-    );
+const people = [
+  { id: 1, name: 'John Doe' },
+  { id: 2, name: 'Jane Smith' },
+  { id: 3, name: 'Michael Brown' },
+  { id: 4, name: 'Emily Johnson' },
+  { id: 5, name: 'David Jones' },
+  { id: 6, name: 'Sarah Davis' },
+  { id: 7, name: 'Kevin Wilson' },
+  { id: 8, name: 'Laura Taylor' },
+  { id: 9, name: 'Richard Williams' },
+  { id: 10, name: 'Emma White' },
+];
 
-    // Extract the relevant weather data from the response
-    const data = response.data;
-
-    // Send the weather data back to the client
-    res.send(data);
-  } catch (error) {
-    // Handle errors
-    console.error(error);
-    res.status(500).send("An error occurred while fetching weather data.");
-  }
+app.get('/api/people', (req, res) => {
+  res.json(people);
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`));
