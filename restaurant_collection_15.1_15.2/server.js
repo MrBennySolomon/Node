@@ -1,10 +1,13 @@
-import express      from 'express';
-import dotenv       from 'dotenv';
-import colors       from 'colors';
-import morgan       from 'morgan';
-import shops        from './routes/shopRoutes.js';
+import express from 'express';
+import dotenv from 'dotenv';
+import colors from 'colors';
+import morgan from 'morgan';
+
+import shops from './routes/shopRoutes.js';
+
 import errorHandler from './middleware/errorHandler.js';
-import connectDB    from './config/db.js';
+
+import connectDB from './config/db.js';
 
 dotenv.config({ path: './config/config.env' });
 
