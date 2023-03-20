@@ -5,21 +5,22 @@ import Shop from "../models/Shop.js";
 // @route   GET /api/v1/shops
 // @access  Public
 export const getShops = asyncHandler(async (req, res, next) => {
-  console.log('typeof req.query.kosher', typeof req.query.kosher);
+  // console.log('typeof JSON.parse(req.query.coordinates)', JSON.parse(req.query.coordinates));
 
   const queryObject = {
     ...(req.query?.cuisine && { typeOfCuisine: req.query.cuisine }),
     ...(req.query?.kosher && {
       kosher: req.query.kosher === "true" ? true : false
     }),
-    ...(req.query?.city && { city: req.query.city }),
-    ...(req.query?.coordinates && { coordinates: req.query.coordinates }),
+    ...(req.query?.name && { city: req.query.name }),
+    ...(req.query?.lat && req.query?.lon && { address:{city: req.query.city, street: req.query.street,coordinates:[Number(req.query.lat),Number(req.query.lon)]}}),
     ...(req.query?.address && { address: req.query.address })
   };
 
   console.log("QueryObject:", queryObject);
 
   const shops = await Shop.find(queryObject);
+  console.log(shops)
 
   res.status(200).json({
     success: true,

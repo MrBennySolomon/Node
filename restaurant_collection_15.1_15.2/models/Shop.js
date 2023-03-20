@@ -28,6 +28,7 @@ const ShopSchema = new mongoose.Schema({
     },
     coordinates: {
       type: [Number],
+      points: ['lt', 'ln']
     }
   },
   typeOfCuisine: {
