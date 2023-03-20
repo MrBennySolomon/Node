@@ -2,7 +2,9 @@ import express from 'express';
 import {
   getShops,
   createShop,
-  getShop
+  getShop,
+  updateShop,
+  deleteShop
 } from '../controllers/shopController.js';
 
 const router = express.Router();
@@ -14,6 +16,8 @@ router
 
 router
   .route('/:id')
-  .get(getShop);
+  .get(getShop)
+  .put(updateShop)
+  .delete(deleteShop);
 
 export default router;

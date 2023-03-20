@@ -1,14 +1,29 @@
-import asyncHandler from '../middleware/asyncHandler.js';
-import Shop from '../models/Shop.js';
+import asyncHandler from "../middleware/asyncHandler.js";
+import Shop from "../models/Shop.js";
 
 // @desc    Get all Shops
 // @route   GET /api/v1/shops
 // @access  Public
 export const getShops = asyncHandler(async (req, res, next) => {
-  const shop = await Shop.find({});
+  console.log('typeof req.query.kosher', typeof req.query.kosher);
+
+  const queryObject = {
+    ...(req.query?.cuisine && { typeOfCuisine: req.query.cuisine }),
+    ...(req.query?.kosher && {
+      kosher: req.query.kosher === "true" ? true : false
+    }),
+    ...(req.query?.city && { city: req.query.city }),
+    ...(req.query?.coordinates && { coordinates: req.query.coordinates }),
+    ...(req.query?.address && { address: req.query.address })
+  };
+
+  console.log("QueryObject:", queryObject);
+
+  const shops = await Shop.find(queryObject);
+
   res.status(200).json({
     success: true,
-    data: shop,
+    data: shops
   });
 });
 
@@ -21,7 +36,7 @@ export const createShop = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    data: shop,
+    data: shop
   });
 });
 
@@ -37,28 +52,45 @@ export const getShop = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    data: shop,
+    data: shop
   });
 });
 
-// @desc    Update a Shop
+// @desc    Upadte a Shop
 // @route   PUT /api/v1/shops/:id
 // @access  Private
 export const updateShop = asyncHandler(async (req, res, next) => {
-  const shop = await Shop.findByIdAndUpdate(req.params.id, req.body, {
+  const restaurant = await Shop.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
-    runValidators: true,
+    runValidators: true
   });
 
-  if (!shop) {
-    return next(new Error(`Bootcamp with id: ${req.params.id} not found`));
+  if (!restaurant) {
+    return next(
+      new Error(
+        `Restaurant that end with '${req.params.id.slice(-6)}' not found`
+      )
+    );
   }
 
   res.status(200).json({
     success: true,
-    data: shop,
+    data: restaurant
   });
 });
 
+// @desc    Delete a Shop
+// @route   DELETE /api/v1/shops/:id
+// @access  Private
+export const deleteShop = asyncHandler(async (req, res, next) => {
+  const shop = await Shop.findByIdAndDelete(req.params.id);
 
+  if (!shop) {
+    return next(new Error(`restaurant with id: ${req.params.id} not found`));
+  }
 
+  res.status(200).json({
+    success: true,
+    data: shop
+  });
+});
